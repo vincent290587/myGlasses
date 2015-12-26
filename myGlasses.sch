@@ -3892,7 +3892,6 @@ chip</description>
 <part name="CHARG" library="adafruit" deviceset="MCP73831" device="/OT"/>
 <part name="TRI_LED" library="SparkFun-LED" deviceset="LED-TRICOLOR" device=""/>
 <part name="INTER" library="SparkFun-Electromechanical" deviceset="SWITCH-SPDT" device="PTH_LOCK"/>
-<part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R1" library="microbuilder" deviceset="RESISTOR" device="1206" value="220"/>
 <part name="R2" library="microbuilder" deviceset="RESISTOR" device="1206" value="220"/>
 <part name="R3" library="microbuilder" deviceset="RESISTOR" device="1206" value="220"/>
@@ -3907,6 +3906,7 @@ chip</description>
 <part name="LED1" library="adafruit" deviceset="LED" device="CHIPLED_1206"/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SWD" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3927,7 +3927,6 @@ chip</description>
 <instance part="CHARG" gate="G$1" x="-68.58" y="63.5"/>
 <instance part="TRI_LED" gate="G$1" x="129.54" y="43.18"/>
 <instance part="INTER" gate="1" x="15.24" y="134.62"/>
-<instance part="GND4" gate="1" x="149.86" y="40.64" rot="R90"/>
 <instance part="R1" gate="G$1" x="109.22" y="43.18"/>
 <instance part="R2" gate="G$1" x="109.22" y="38.1"/>
 <instance part="R3" gate="G$1" x="96.52" y="40.64"/>
@@ -3942,6 +3941,7 @@ chip</description>
 <instance part="LED1" gate="G$1" x="-96.52" y="40.64" rot="R90"/>
 <instance part="GND9" gate="1" x="-119.38" y="76.2" rot="R180"/>
 <instance part="SWD" gate="G$1" x="35.56" y="0" rot="R90"/>
+<instance part="SUPPLY3" gate="G$1" x="149.86" y="40.64" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -3981,11 +3981,6 @@ chip</description>
 <wire x1="43.18" y1="66.04" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="TRI_LED" gate="G$1" pin="A"/>
-<pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="142.24" y1="40.64" x2="147.32" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C2" gate="G$1" pin="P$2"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="-96.52" y1="60.96" x2="-96.52" y2="58.42" width="0.1524" layer="91"/>
@@ -4023,6 +4018,11 @@ chip</description>
 <pinref part="SUPPLY2" gate="G$1" pin="3.3V"/>
 <wire x1="27.94" y1="66.04" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="TRI_LED" gate="G$1" pin="A"/>
+<pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
+<wire x1="142.24" y1="40.64" x2="149.86" y2="40.64" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$1" class="1">
 <segment>
@@ -4038,6 +4038,7 @@ chip</description>
 <wire x1="-53.34" y1="68.58" x2="-45.72" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="-35.56" y1="68.58" x2="-45.72" y2="68.58" width="0.1524" layer="91"/>
 <junction x="10.16" y="134.62"/>
+<junction x="-45.72" y="68.58"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -4073,6 +4074,7 @@ chip</description>
 <wire x1="-99.06" y1="40.64" x2="-109.22" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="-109.22" y1="40.64" x2="-109.22" y2="68.58" width="0.1524" layer="91"/>
 <junction x="-109.22" y="68.58"/>
+<junction x="-96.52" y="68.58"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -4144,6 +4146,15 @@ chip</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="202,1,15.24,86.36,LDO3.3,BP,,,,"/>
+<approved hash="104,1,-53.34,58.42,CHARG,VSS,GND,,,"/>
+<approved hash="104,1,-81.28,68.58,CHARG,VDD,N$5,,,"/>
+<approved hash="113,1,4.40267,127.195,BATT,,,,,"/>
+<approved hash="113,1,16.51,133.358,INTER,,,,,"/>
+<approved hash="113,1,-95.25,40.9617,LED1,,,,,"/>
+<approved hash="113,1,32.8253,4.40267,SWD,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
